@@ -31,10 +31,10 @@ function submitAnswer() {
   if (userAnswer.toLowerCase() === items[currentItemIndex].pinyin.toLowerCase()) {
     document.getElementById('result').textContent = "correct!";
     usedIndices.push(currentItemIndex);
-    setTimeout(displayRandomHint, 2000);
+    setTimeout(displayRandomHint, 3000);
   } else {
     document.getElementById('result').textContent = `Incorrect! Answer is ${items[currentItemIndex].pinyin}`;
-    setTimeout(displayRandomHint, 2000);
+    setTimeout(displayRandomHint, 3000);
   }
 }
 const user = document.getElementById('user');
