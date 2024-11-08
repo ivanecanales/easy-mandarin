@@ -41,12 +41,15 @@ const user = document.getElementById('user');
 const source = [
   '-a', '-e', '-i', '-o', '-u',
   '.a', '.e', '.i', '.o', '.u',
-  ',a', ',e', ',i', ',o', ',u'
+  ',a', ',e', ',i', ',o', ',u',
+  'aa', 'ee', 'ii', 'oo', 'uu',
+  'ña', 'ñe', 'ñi', 'ño', 'ñu'
 ];
 const target = [
     'ā', 'ē', 'ī', 'ō', 'ū',
     'ǎ', 'ě', 'ǐ', 'ǒ', 'ǔ',
-    'à', 'è', 'ì', 'ò', 'ù'
+    'à', 'è', 'ì', 'ò', 'ù',
+    'ā', 'ē', 'ī', 'ō', 'ū',
 ];
 document.getElementById('user').addEventListener(
   'input',
