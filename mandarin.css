@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap');
 html{
     --dark-color: #2B2B2B;
-    --hanzi-color: crimson;
+    --hanzi-color: coral;
     --hanzi-light-color: hsl(337, 100%, 95%);
     --pinyin-color: hsl(179, 100%, 65%);
     --pinyin-light-color: hsl(179, 100%, 95%);
-    --english-color: chartreuse;
+    --english-color: lightgreen;
     --english-light-color: hsl(93, 100%, 95%);
     --chinese-font: 'Noto Sans SC';
     --working-font: 'Ubuntu Sans Mono';
@@ -52,6 +52,7 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-shadow: 2px 4px 3px pink;
 }
 #result, #pinyin, #english{
     font-family: var(--working-font);
@@ -70,4 +71,26 @@ p{
     color: var(--english-color);
     font-size: 15px;
     height: 2.5lh;
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 400px){
+    html{
+        padding: 0 20px;
+    }
+    body{
+        margin-top: 20px;
+    }
+    #hanzi{
+        font-size: 140px;
+        height: 160px;
+    }
+    #user{
+        font-size: 15px;
+        margin: 10px;
+    }
+    #english{
+        font-size: 10px;
+        height: 2lh;
+    }
 }
