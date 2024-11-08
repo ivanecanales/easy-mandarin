@@ -27,6 +27,12 @@ p{
     text-align: center;
     margin: 0;
 }
+#check{
+    font-family: var(--working-font);
+    color: var(--hanzi-light-color);
+    position: relative;
+    float: left;
+}
 #user{
     border-radius: 10px;
     text-align: center;

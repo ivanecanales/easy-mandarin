@@ -50,6 +50,7 @@ const target = [
     'ǎ', 'ě', 'ǐ', 'ǒ', 'ǔ',
     'à', 'è', 'ì', 'ò', 'ù',
     'ā', 'ē', 'ī', 'ō', 'ū',
+    'á', 'é', 'í', 'ó', 'ú'
 ];
 document.getElementById('user').addEventListener(
   'input',
