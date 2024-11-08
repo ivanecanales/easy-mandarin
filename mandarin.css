@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap');
 html{
     --dark-color: #2B2B2B;
-    --hanzi-color: indianred;
+    --hanzi-color: crimson;
     --hanzi-light-color: hsl(337, 100%, 95%);
     --pinyin-color: hsl(179, 100%, 65%);
     --pinyin-light-color: hsl(179, 100%, 95%);
