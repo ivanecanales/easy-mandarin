@@ -16,13 +16,12 @@ html{
 body{
     max-width: 400px;
     margin: auto;
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 20px;
     box-shadow: rgba(125, 123, 123, 0.35) 0px 5px 15px;
-    height: calc(280px + 45px + 30px + 25px);
+    height: calc(250px + 45px + 30px + 25px);
     background: hsl(0, 0%, 16%);
 }
 p{
@@ -55,7 +54,7 @@ p{
     color: var(--hanzi-color);
     font-family: var(--chinese-font);
     font-size: 200px;
-    height: 280px;
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,24 +77,4 @@ p{
     color: var(--english-color);
     font-size: 15px;
     height: 45px;
-}
-@media only screen and (max-width: 400px){
-    html{
-        padding: 0 20px;
-    }
-    body{
-        margin-top: 20px;
-    }
-    #hanzi{
-        font-size: 150px;
-        height: 170px;
-    }
-    #user{
-        font-size: 15px;
-        margin: 10px;
-    }
-    #english{
-        font-size: 10px;
-        height: 2lh;
-    }
 }
