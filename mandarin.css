@@ -10,7 +10,7 @@ html{
     --english-light-color: hsl(93, 100%, 95%);
     --chinese-font: 'Noto Sans SC';
     --working-font: 'Ubuntu Sans Mono';
-    background: #2A2A2A;
+    background: hsl(0, 0%, 20%);
     padding: 20px;
 }
 body{
@@ -22,6 +22,8 @@ body{
     justify-content: center;
     border-radius: 20px;
     box-shadow: rgba(125, 123, 123, 0.35) 0px 5px 15px;
+    height: calc(280px + 45px + 30px + 25px);
+    background: hsl(0, 0%, 16%);
 }
 p{
     text-align: center;
@@ -37,11 +39,10 @@ p{
     border-radius: 10px;
     text-align: center;
     font-family: var(--working-font);
-    font-size: 20px;
+    font-size: 15px;
     max-width: 300px;
     outline: none;
     background: hsl(65, 15%, 45%);
-    margin: 20px;
 }
 #user::placeholder{
     font-family: var(--working-font);
@@ -67,19 +68,17 @@ p{
     color: var(--english-light-color);
     font-size: 20px;
     height: 25px;
-    margin-bottom: 20px;
 }
 #pinyin{
     display: flex;
     justify-content: center;
+    height: 30px;
 }
 #english{
     color: var(--english-color);
     font-size: 15px;
-    height: 2.5lh;
-    margin-top: 10px;
+    height: 45px;
 }
-
 @media only screen and (max-width: 400px){
     html{
         padding: 0 20px;
