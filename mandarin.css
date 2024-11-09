@@ -6,7 +6,7 @@ html{
     --hanzi-light-color: hsl(337, 100%, 95%);
     --pinyin-color: hsl(179, 100%, 65%);
     --pinyin-light-color: hsl(179, 100%, 95%);
-    --english-color: chartreuse;
+    --english-color: teal;
     --english-light-color: hsl(93, 100%, 95%);
     --chinese-font: 'Noto Sans SC';
     --working-font: 'Ubuntu Sans Mono';
@@ -21,29 +21,45 @@ body{
     justify-content: center;
     border-radius: 20px;
     box-shadow: rgba(125, 123, 123, 0.35) 0px 5px 15px;
-    height: calc(250px + 45px + 30px + 25px);
+    height: calc(5px + 20px + 30px + 220px + 45px + 30px + 25px + 20px);
     background: hsl(0, 0%, 16%);
 }
 p{
     text-align: center;
     margin: 0;
 }
-#check{
-    font-family: var(--working-font);
-    color: var(--hanzi-light-color);
-    position: relative;
-    float: left;
+#controls{
+    display: flex;
+    justify-content: space-around;
+    color: var(--english-light-color);
+    height: 20px;
+    margin-top: 5px;
+}
+#progress{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+#game{
+    accent-color: var(--english-color);
+}
+#start, #end{
+    max-width: 100px;
+    font-size: 10px;
 }
 #user{
+    max-width: 300px;
+    font-size: 15px;
+}
+#user, #start, #end{
     border-radius: 10px;
     text-align: center;
     font-family: var(--working-font);
-    font-size: 15px;
-    max-width: 300px;
     outline: none;
-    background: hsl(65, 15%, 45%);
+    background: hsl(65, 15%, 45%); 
 }
-#user::placeholder{
+#user::placeholder, #start::placeholder, #end::placeholder{
     font-family: var(--working-font);
     color: rgb(60, 60, 60);
 }
@@ -53,19 +69,18 @@ p{
 #hanzi{
     color: var(--hanzi-color);
     font-family: var(--chinese-font);
-    font-size: 200px;
-    height: 250px;
+    font-size: 180px;
+    height: 220px;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-shadow: 2px 4px 3px pink;
 }
 #result, #pinyin, #english{
     font-family: var(--working-font);
 }
 #result{
     color: var(--english-light-color);
-    font-size: 20px;
+    font-size: 15px;
     height: 25px;
 }
 #pinyin{
@@ -74,7 +89,58 @@ p{
     height: 30px;
 }
 #english{
-    color: var(--english-color);
+    color: var(--english-light-color);
+    text-shadow: 1px var(--english-light-color);
     font-size: 15px;
     height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#pure{
+    height: 20px;
+}
+#toggle{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+#label {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+#label::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+#toggle:checked + #label {
+    background-color: var(--english-color);
+}
+#toggle:hover + #label::after{
+    background: var(--dark-color);
+}
+#toggle:checked + #label::after {
+    transform: translateX(12px);
+}
+#play{
+    font-family: var(--working-font);
+    background: var(--english-light-color);
+    color: var(--dark-color);
+    border-radius: 5px;
+    font-size: 10px;
+}
+#play:hover{
+    background: var(--hanzi-light-color);
 }

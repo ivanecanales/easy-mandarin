@@ -7,15 +7,27 @@
         <link rel="stylesheet" href="mandarin.css">
     </head>
     <body>
+        <p id="controls">
+            <input type="number" id="start" placeholder="start"></input>
+            <input type="number" id="end" placeholder="end"></input>
+            <button id="play">play</button>
+        </p>
+        <p id="progress">
+            <progress id="game" value="0" max="0" max="0"></progress>
+        </p>
         <p id="hanzi"></p>
         <p id="english"></p>
-        <audio autoplay id="audio">
+        <audio id="audio">
             <source type="audio/mpeg">
         </audio>
         <p id="pinyin">
             <input type="text" id="user" placeholder="type pinyin">
         </p>
         <p id="result"></p>
+        <p id="pure">
+            <input type="checkbox" id="toggle">
+            <label for="toggle" id="label"></label>
+        </p>
         <script src="app.js"></script>
     </body>
 </html>

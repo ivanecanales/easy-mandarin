@@ -1,19 +1,41 @@
 const element = id => document.getElementById(id);
-const start = 60;
-const end = 70;
-const delay = 3000; //higher for study, lower for playing
-fetch('data/hanzi.json').then(
-    response => response.json()
-).then(
-    data => startGame(data.slice(start, end))
-);
-let [items, current, used] = [[], 0, []];
-const startGame = data => {items = data; shownextcard()};
-const [hanzi, english, audio, pinyin, user, result] = [
-    'hanzi', 'english', 'audio', 'pinyin', 'user', 'result'
+const delay = 500; //higher for study, lower for playing
+const [
+    start, end, play, game, hanzi, english, audio,
+    pinyin, user, result, toggle
+] = [
+    'start', 'end', 'play', 'game', 'hanzi', 'english', 'audio',
+    'pinyin', 'user', 'result', 'toggle'
 ].map(id => element(id));
+let [items, current, used] = [[], 0, []];
+play.addEventListener(
+    'click',
+    () => {
+
+        if(start.value && end.value){
+            [hanzi, english, pinyin].forEach(
+                element => {
+                    element.style.display = 'flex';
+                    [items, current, used] = [[], 0, []]
+                }
+            );
+            fetch(
+                'https://ivanecanales.cl/mandarin/data/hanzi.json'
+            ).then(
+                response => response.json()
+            ).then(
+                data => startGame(data.slice(Number(start.value), Number(end.value)))
+            );
+            const startGame = data => {
+                items = data; shownextcard()
+            };
+            game.max = Number(end.value) - Number(start.value);
+        };
+    }
+);
 const shownextcard = () => {
     if(used.length === items.length){
+        game.value = Number(end.value);
         result.textContent = "you've completed all hanzi!";
         [hanzi, english, pinyin].forEach(
             element => {element.style.display = 'none'}
@@ -23,9 +45,16 @@ const shownextcard = () => {
     do{
         current = Math.floor(Math.random() * items.length)
     }while(used.includes(current));
+    game.value = used.length;
     hanzi.textContent = items[current].hanzi;
     english.textContent = items[current].english.join(', ');
-    audio.src = `data/audio/${String(start + current + 1).padStart(4, '0')}.mp3`;
+    const baseurl = 'https://ivanecanales.cl/mandarin/data/audio/';
+    const index = Number(start.value) + current + 1;
+    const audiofile = `${String(index).padStart(4, '0')}.mp3`;
+    audio.src = baseurl + audiofile;
+    if(!toggle.checked){
+        audio.play();    
+    };
     user.value = '';
     result.textContent = '';
 }
@@ -34,9 +63,11 @@ const submit = () => {
     if(answer == items[current].pinyin){
         result.textContent = "correct!";
         used.push(current);
+        game.style.accentColor = 'teal';
         setTimeout(shownextcard, delay);
     }else{
         result.textContent = `incorrect! ${items[current].pinyin}`;
+        game.style.accentColor = 'crimson';
         setTimeout(shownextcard, delay);
     };
 };
